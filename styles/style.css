@@ -1,0 +1,395 @@
+:root {
+    --font-primary: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    
+    /* Light theme */
+    --bg-primary-light: #ffffff;
+    --bg-secondary-light: #f5f7fa;
+    --text-primary-light: #121826;
+    --text-secondary-light: #4b5563;
+    --accent-light: #3b82f6;
+    --border-light: #e5e7eb;
+    --card-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.05);
+    
+    /* Dark theme */
+    --bg-primary-dark: #121826;
+    --bg-secondary-dark: #1f2937;
+    --text-primary-dark: #f3f4f6;
+    --text-secondary-dark: #9ca3af;
+    --accent-dark: #60a5fa;
+    --border-dark: #374151;
+    --card-shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.2);
+    
+    /* Platform colors */
+    --leetcode: #00af9b;
+    --codechef: #745d46;
+    --gfg: #2f8d46;
+    --codeforces: #318ce7;
+    
+    /* Applied theme (default light) */
+    --bg-primary: var(--bg-primary-light);
+    --bg-secondary: var(--bg-secondary-light);
+    --text-primary: var(--text-primary-light);
+    --text-secondary: var(--text-secondary-light);
+    --accent: var(--accent-light);
+    --border: var(--border-light);
+    --card-shadow: var(--card-shadow-light);
+    
+    /* Spacing */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 40px;
+  }
+  
+  /* Dark theme class */
+  .dark-theme {
+    --bg-primary: var(--bg-primary-dark);
+    --bg-secondary: var(--bg-secondary-dark);
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --accent: var(--accent-dark);
+    --border: var(--border-dark);
+    --card-shadow: var(--card-shadow-dark);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.5;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-2);
+  }
+  
+  header {
+    background-color: var(--bg-secondary);
+    padding: var(--space-2) 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: linear-gradient(to right, var(--leetcode), var(--codeforces));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-emphasis-color: transparent;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-3);
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-2);
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  
+  p {
+    margin-bottom: var(--space-2);
+    color: var(--text-secondary);
+  }
+  
+  main {
+    padding: var(--space-4) 0;
+  }
+  
+  section {
+    margin-bottom: var(--space-5);
+  }
+  
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+  }
+  
+  #theme-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-1);
+    border-radius: 50%;
+    transition: background-color 0.3s;
+  }
+  
+  #theme-toggle-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .dark-theme #theme-toggle-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .light-icon, .dark-icon {
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  
+  .light-theme .light-icon {
+    display: none;
+  }
+  
+  .light-theme .dark-icon {
+    display: block;
+  }
+  
+  .dark-theme .light-icon {
+    display: block;
+  }
+  
+  .dark-theme .dark-icon {
+    display: none;
+  }
+  
+  .loading {
+    text-align: center;
+    padding: var(--space-3);
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+  
+  footer {
+    background-color: var(--bg-secondary);
+    padding: var(--space-3) 0;
+    margin-top: var(--space-4);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+    
+    h2 {
+      font-size: 1.25rem;
+    }
+    
+    h3 {
+      font-size: 1.125rem;
+    }
+    
+    .container {
+      padding: 0 var(--space-2);
+    }
+    
+    main {
+      padding: var(--space-3) 0;
+    }
+    
+    section {
+      margin-bottom: var(--space-4);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.25rem;
+    }
+    
+    .container {
+      padding: 0 var(--space-1);
+    }
+  }
+/* ═══════════════════════════════════════════════════════════════════
+   NOTIFICATION SYSTEM STYLES
+   Added by the notification system module – does not alter existing rules
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Permission banner ──────────────────────────────────────────── */
+.notif-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  flex-wrap: wrap;
+  border-bottom: 1px solid transparent;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.notif-banner--prompt {
+  background: rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.25);
+  color: var(--text-primary, #1a1a2e);
+}
+
+.notif-banner--warning {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: var(--text-primary, #1a1a2e);
+}
+
+.notif-banner--info {
+  background: rgba(14, 165, 233, 0.1);
+  border-color: rgba(14, 165, 233, 0.25);
+  color: var(--text-primary, #1a1a2e);
+}
+
+.dark-theme .notif-banner--prompt  { color: #e2e8f0; }
+.dark-theme .notif-banner--warning { color: #e2e8f0; }
+.dark-theme .notif-banner--info    { color: #e2e8f0; }
+
+.notif-banner__text {
+  flex: 1;
+  min-width: 200px;
+}
+
+.notif-banner__btn {
+  padding: 6px 14px;
+  background: var(--accent, #6366f1);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.notif-banner__btn:hover  { opacity: 0.88; }
+.notif-banner__btn:active { transform: scale(0.97); }
+.notif-banner__btn:disabled { opacity: 0.5; cursor: default; }
+
+.notif-banner__dismiss {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text-secondary, #666);
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+
+.notif-banner__dismiss:hover {
+  background: rgba(0,0,0,0.08);
+}
+
+/* ── Remind Me button on contest cards ──────────────────────────── */
+.remind-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 14px;
+  background: transparent;
+  border: 1.5px solid var(--accent, #6366f1);
+  color: var(--accent, #6366f1);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.remind-btn:hover {
+  background: var(--accent, #6366f1);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.remind-btn:active {
+  transform: scale(0.96);
+}
+
+/* Active / saved state */
+.remind-btn--active {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.4);
+  color: var(--accent, #6366f1);
+  cursor: default;
+}
+
+.remind-btn--active:hover {
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--accent, #6366f1);
+  transform: none;
+}
+
+/* ── Add to Calendar button ─────────────────────────────────────────
+   A solid, gradient-filled pill button so it reads as the primary,
+   "do something outside this app" action, distinct from the outlined
+   Remind Me toggle and the ghost Register link. */
+.calendar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: linear-gradient(135deg, var(--accent, #6366f1), #8b5cf6);
+  border: none;
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.25);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+  white-space: nowrap;
+}
+
+.calendar-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(99, 102, 241, 0.35);
+  filter: brightness(1.06);
+}
+
+.calendar-btn:active {
+  transform: translateY(0) scale(0.96);
+  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.25);
+}
+
+.calendar-btn .cal-icon {
+  font-size: 0.95em;
+  line-height: 1;
+}
+
+/* Keep the register + remind + calendar buttons in a row with a gap */
+.contest-register {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
